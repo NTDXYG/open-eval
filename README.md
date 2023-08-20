@@ -3,17 +3,17 @@ Another dataset for evaluating competition-level code generation.
 
 ## Introduction
 
-We mine a set of 178 function-level programming problems ( which we call the OpenEval dataset) from the open-source programming competition websites to further contribute to evaluating the functional correctness of LLMs on code generation tasks. The OpenEval dataset can be considered as a complementary version of the HumanEval dataset.
+We present the OpenEval dataset, a collection of 178 function-level programming problems sourced from open-source programming competition websites. This dataset serves as a resource for evaluating the functional correctness of LLMs in code generation tasks. 
+
+*OpenEval can be considered as a complementary version of the HumanEval dataset.*
 
 ## Construct
 
-Similar to the HumanEval dataset, each problem consists of a function signature, a documentation string, a body, and several unit tests, and each problem has five test cases.
+Each problem in OpenEval includes a function signature, a documentation string, and a code body, with five test cases per problem.
 
-The model input prompt includes function signatures and document strings, and the model output is the body of the code.
+To ensure consistency between the documentation strings and the code body, we employ open-ai's GPT3.5 interface in a few-shot method to generate the corresponding documentation strings. These generated strings are then manually reviewed to ensure their quality.
 
-In order to further ensure the consistency between the document strings and the code body, we generate the corresponding document strings for each code by means of open-ai's GPT3.5 interface in a few-shot manner, and manually review them to ensure their quality.
-
-In addition, we ensure that there are no test cases in the prompt to prevent the impact of test case leakage on model performance.
+Furthermore, we take precautions to prevent test case leakage from affecting model performance by excluding test cases from the model input prompt.
 
 ## Use
 
